@@ -1,0 +1,41 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="46" y1="40" x2="1116" y2="582" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08111F"/>
+      <stop offset="0.45" stop-color="#0D1728"/>
+      <stop offset="1" stop-color="#101C32"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="167" y1="181" x2="343" y2="352" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1D4ED8"/>
+      <stop offset="0.58" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+    <linearGradient id="cta" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1008" cy="132" r="210" fill="#2563EB" opacity="0.16"/>
+  <circle cx="180" cy="548" r="250" fill="#F59E0B" opacity="0.12"/>
+  <circle cx="935" cy="486" r="180" fill="#0EA5E9" opacity="0.12"/>
+  <rect x="84" y="126" width="1032" height="378" rx="34" fill="white" fill-opacity="0.05" stroke="white" stroke-opacity="0.1"/>
+  <rect x="140" y="188" width="132" height="132" rx="34" fill="url(#brand)"/>
+  <path d="M170 280V226h14.1l16.2 26.9 16.2-26.9H231v54h-13.5v-31.5l-14.9 20.4h-3.8l-14.9-20.4V280H170Z" fill="white"/>
+  <text x="314" y="247" fill="white" font-family="Sora, Arial, sans-serif" font-size="70" font-weight="700">
+    Mintu bro!
+  </text>
+  <text x="314" y="302" fill="#93C5FD" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="600" letter-spacing="4">
+    ADMISSIONS PLATFORM
+  </text>
+  <text x="314" y="374" fill="white" font-family="Manrope, Arial, sans-serif" font-size="34" opacity="0.88">
+    Smart discovery for schools, colleges, and
+  </text>
+  <text x="314" y="417" fill="white" font-family="Manrope, Arial, sans-serif" font-size="34" opacity="0.88">
+    high-conversion enquiry workflows.
+  </text>
+  <rect x="314" y="447" width="308" height="58" rx="16" fill="url(#cta)"/>
+  <text x="348" y="484" fill="white" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="700">
+    Explore Institutions
+  </text>
+</svg>
