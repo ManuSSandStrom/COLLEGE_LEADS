@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-const isProduction = import.meta.env.MODE === 'production';
-const fallbackURL = isProduction ? 'https://college-leads.onrender.com/api' : 'http://localhost:5000/api';
-const baseURL = (import.meta.env.VITE_API_URL || fallbackURL).replace(/\/+$/, '');
+const baseURL = (import.meta.env.VITE_API_URL || 'https://college-leads.onrender.com/api').replace(/\/+$/, '');
 
 const api = axios.create({
   baseURL,
