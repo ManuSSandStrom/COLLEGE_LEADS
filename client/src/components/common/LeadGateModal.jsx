@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FiUsers } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 import api from '../../api/axios';
-import { getLeadProfile, setLeadProfile } from '../../utils/leadProfile';
+import { getCompleteLeadProfile, getLeadProfile, setLeadProfile, skipLeadProfile } from '../../utils/leadProfile';
 
 const LeadGateModal = () => {
   const [open, setOpen] = useState(false);
@@ -22,14 +22,16 @@ const LeadGateModal = () => {
       setOpen(true);
       return;
     }
+    const completeProfile = getCompleteLeadProfile();
+    if (!completeProfile) return;
     setForm({
-      studentName: existing.studentName || '',
-      phone: existing.phone || '',
-      email: existing.email || '',
-      age: existing.age || '',
-      lookingFor: existing.lookingFor || 'College',
+      studentName: completeProfile.studentName || '',
+      phone: completeProfile.phone || '',
+      email: completeProfile.email || '',
+      age: completeProfile.age || '',
+      lookingFor: completeProfile.lookingFor || 'College',
     });
-    if (existing.leadId) setLeadId(existing.leadId);
+    if (completeProfile.leadId) setLeadId(completeProfile.leadId);
   }, []);
 
   useEffect(() => {
@@ -83,6 +85,12 @@ const LeadGateModal = () => {
     } finally {
       setSubmitting(false);
     }
+  };
+
+  const handleSkip = () => {
+    skipLeadProfile();
+    setOpen(false);
+    toast.success('You can explore now and share details later.');
   };
 
   if (!open) return null;
@@ -170,7 +178,15 @@ const LeadGateModal = () => {
           <button type="submit" className="btn-primary w-full justify-center" disabled={submitting}>
             {submitting ? 'Saving...' : 'Save & Continue'}
           </button>
-          <p className="text-xs text-gray-400 text-center">This is mandatory to use the portal.</p>
+          <button
+            type="button"
+            onClick={handleSkip}
+            className="btn-secondary w-full justify-center"
+            disabled={submitting}
+          >
+            Skip for now
+          </button>
+          <p className="text-xs text-gray-400 text-center">You can add your details later from the home page form.</p>
         </form>
       </div>
     </div>
@@ -178,4 +194,3 @@ const LeadGateModal = () => {
 };
 
 export default LeadGateModal;
-

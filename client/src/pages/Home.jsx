@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import api from '../api/axios';
 import useRevealOnScroll from '../hooks/useRevealOnScroll';
 import toast from 'react-hot-toast';
-import { getLeadProfile, setLeadProfile } from '../utils/leadProfile';
+import { getCompleteLeadProfile, setLeadProfile } from '../utils/leadProfile';
 import { statesList, townsByState, allTowns } from '../utils/locations';
 
 const Home = () => {
@@ -36,7 +36,7 @@ const Home = () => {
     fetchStats();
     fetchFeatured();
     fetchFilters();
-    const existing = getLeadProfile();
+    const existing = getCompleteLeadProfile();
     if (existing) {
       setQuickForm({
         studentName: existing.studentName || '',
@@ -156,7 +156,7 @@ const Home = () => {
   };
 
   const handleKnowMore = async (inst) => {
-    const profile = getLeadProfile();
+    const profile = getCompleteLeadProfile();
     if (!profile) {
       toast.error('Please fill your details first');
       navigate('/#quick-start');

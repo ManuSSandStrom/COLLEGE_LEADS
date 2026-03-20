@@ -4,7 +4,7 @@ import { FiSearch, FiFilter, FiMapPin, FiRefreshCw } from 'react-icons/fi';
 import api from '../api/axios';
 import useRevealOnScroll from '../hooks/useRevealOnScroll';
 import toast from 'react-hot-toast';
-import { getLeadProfile } from '../utils/leadProfile';
+import { getCompleteLeadProfile } from '../utils/leadProfile';
 import { statesList, townsByState, allTowns } from '../utils/locations';
 
 const Institutions = () => {
@@ -87,7 +87,7 @@ const Institutions = () => {
   };
 
   const handleKnowMore = async (inst) => {
-    const profile = getLeadProfile();
+    const profile = getCompleteLeadProfile();
     if (!profile) {
       toast.error('Please fill your details first');
       navigate('/#quick-start');
