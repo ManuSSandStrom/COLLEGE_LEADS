@@ -37,10 +37,8 @@ const allowedOrigins = (process.env.CLIENT_URLS || process.env.CLIENT_URL || '')
 
 app.use(cors({
   origin(origin, callback) {
-    if (!origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-    return callback(new Error('Not allowed by CORS'));
+    // Automatically allow the request's origin (Bypasses CORS strictness for frontend)
+    return callback(null, true);
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
