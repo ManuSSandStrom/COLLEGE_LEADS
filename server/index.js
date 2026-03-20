@@ -30,16 +30,9 @@ const authLimiter = rateLimit({
   message: { success: false, message: 'Too many login attempts, please try again in 15 minutes.' },
 });
 
-const allowedOrigins = (process.env.CLIENT_URLS || process.env.CLIENT_URL || '')
-  .split(',')
-  .map((origin) => origin.trim())
-  .filter(Boolean);
 
 app.use(cors({
-  origin(origin, callback) {
-    // Automatically allow the request's origin (Bypasses CORS strictness for frontend)
-    return callback(null, true);
-  },
+  origin: true, // Automatically reflect the request origin to bypass CORS
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
